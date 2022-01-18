@@ -25,6 +25,7 @@ function openCard(evt, cityName) {
 
 
 function computeResults(e) {
+  
   // Getting HTML elements by ID
 
   const UIbills = document.getElementById("bills").value;

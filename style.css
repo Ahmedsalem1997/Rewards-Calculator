@@ -21,4 +21,4 @@ body {
 .columns:not(.is-desktop) {
     display: flex;
     justify-content: center;
-  }
+}
