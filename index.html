@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rewards Calculator Task</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <h1>Calculate your rewards</h1>
+        </div>
+
+        <div class="columns">
+          <div class="column is-three-quarters">
+            <div class="card">
+              <div class="card-content">
+                <form id="loan-form">
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        Vendor/Bills
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="bills" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        Media/Ad
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="ad" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        Corporation spend
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="spend" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="level">
+                    <!-- Left side -->
+                    <div class="level-left is-marginless">
+                      <div class="level-item">
+                        Team project
+                      </div>
+                    </div>
+
+                    <!-- Right side -->
+                    <div class="level-right">
+                      <div class="level-item">
+                        <div class="field">
+                          <div class="control has-icons-left ">
+                            <input class="input" id="project" type="number" />
+                            <span class="icon is-small is-left">
+                              <i class="fa fa-dollar-sign"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="control">
+                    <button
+                      class="button is-large is-fullwidth is-info is-outlined"
+                    >
+                      Calculate
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section"> 
+      <div class="columns is-multiline">
+        <div class="column is-12-tablet is-6-desktop is-2-widescreen">
+          <div class="notification is-info has-text">
+            <p id="Unlimited" class="title is-6">$</p>
+            <p class="subtitle is-6">Unlimited Rewards</p>
+          </div>
+        </div>
+
+        <div class="column is-12-tablet is-6-desktop is-2-widescreen">
+          <div class="notification is-info has-text">
+            <p id="Lifetime" class="title is-6">$</p>
+            <p class="subtitle is-6">Lifetime Rewards</p>
+          </div>
+        </div>
+        
+      </div>
+      <h1 class="title ">Compare your rewards</h1>
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks button is-large" onclick="openCard(event, 'Brex')">
+          <span class="icon is-large">
+            <i class="fab fa-cc-diners-club"></i>
+          </span>
+          <span>Brex</span>
+        </button>
+        <button class="tablinks button is-large" onclick="openCard(event, 'Stripe')">
+          <span class="icon is-large">
+            <i class="fab fa-stripe-s"></i>
+          </span>
+          <span>Stripe</span>
+        </button>
+        <button class="tablinks button is-large" onclick="openCard(event, 'Amex')">
+          <span class="icon is-large">
+            <i class="fab fa-cc-amex"></i>
+          </span>
+          <span>Amex</span>
+        </button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="Brex" class="tabcontent">
+        <div class="notification is-info has-text">
+          <p id="totalBrex" class="title is-6">$</p>
+          <p class="subtitle is-6">Brex</p>
+        </div>
+      </div>
+
+      <div id="Stripe" class="tabcontent">
+        <div class="notification is-info has-text">
+          <p id="totalStrip" class="title is-6">$</p>
+          <p class="subtitle is-6">Stripe</p>
+        </div>
+      </div>
+
+      <div id="Amex" class="tabcontent">
+        <div class="notification is-info has-text">
+          <p id="totalAmex" class="title is-6">$</p>
+          <p class="subtitle is-6">Amex</p>
+        </div>
+      </div> 
+    </section>
+
+
+
+  </body>
+
+  <script src="app.js"></script>
+</html>
